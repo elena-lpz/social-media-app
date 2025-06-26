@@ -14,7 +14,7 @@ export async function CreateUserProfile({ id, formData }) {
   };
 
   await db.query(
-    `INSERT INTO profiles (id, username, bio, location, avatar) VALUES ($1, $2, $3, $4, $5)`,
+    `INSERT INTO user_profiles (id, username, bio, location, avatar) VALUES ($1, $2, $3, $4, $5)`,
     [
       id,
       profileData.username,
