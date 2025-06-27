@@ -69,3 +69,10 @@ export async function deleteBook(bookId: number, pathname: string) {
   await db.query(`DELETE FROM books WHERE id = $1`, [bookId]);
   revalidatePath(pathname);
 }
+
+//get all books in db
+
+export async function getAllBooks() {
+  const result = await db.query(`SELECT * FROM books ORDER BY created_at DESC`);
+  return result.rows;
+}

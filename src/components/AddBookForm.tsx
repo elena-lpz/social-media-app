@@ -52,7 +52,7 @@ export default function AddBookForm({ userId }: { userId: string }) {
 
             <select name="rating" required className="w-full mb-2 p-2 border">
               <option value="">Select rating</option>
-              <option value="Not read">Not read yet.</option>
+              <option value="N/A">Not read yet.</option>
               <option value="1">1 star</option>
               <option value="2">2 stars</option>
               <option value="3">3 stars</option>

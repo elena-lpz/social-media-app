@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
+import LoggedInNav from "./LoggedInNav";
 import {
   SignInButton,
   SignUpButton,
@@ -8,26 +9,21 @@ import {
 } from "@clerk/nextjs";
 
 export default async function Header() {
+  const { userId } = await auth();
   return (
-    <>
-      <header className="flex justify-between">
-        <h1 className="text-2xl">Booksy</h1>
-        <nav className="flex gap-4 items-center">
-          <SignedOut>
-            <SignInButton />
-            <SignUpButton>
-              <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                Sign Up
-              </button>
-            </SignUpButton>
-          </SignedOut>
-          <SignedIn>
-            <Link href={"/"}>Home</Link>
-            <Link href={"/profile"}>Profile</Link>
-            <UserButton />
-          </SignedIn>
-        </nav>
-      </header>
-    </>
+    <header className="flex justify-between">
+      <h1 className="text-2xl">Booksy</h1>
+      <nav className="flex">
+        <SignedOut>
+          <SignInButton />
+          <SignUpButton />
+        </SignedOut>
+
+        {userId ? <LoggedInNav /> : null}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </nav>
+    </header>
   );
 }
