@@ -35,3 +35,20 @@ export async function getBooksByStatus(userId: string, status: string) {
   );
   return booksQuery.rows;
 }
+
+// add book action
+export async function addBook(userId: string, formData: FormData) {
+  const title = formData.get("title");
+  const author = formData.get("author");
+  const image = formData.get("image");
+  const status = formData.get("status");
+  const rating = formData.get("rating");
+  console.log("Saving book to the database...");
+
+  await db.query(
+    `INSERT INTO books (title, author, image, status, rating, user_id) VALUES ($1, $2, $3, $4, $5, $6)`,
+    [title, author, image, status, rating, userId]
+  );
+  console.log("Book saved!");
+  //to revalidate? but what path....
+}

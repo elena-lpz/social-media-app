@@ -8,6 +8,7 @@ import Image from "next/image";
 import ReadingBooks from "@/components/ReadingBooks";
 import WantToReadBooks from "@/components/WantToReadBooks";
 import FinishedBooks from "@/components/FinishedBooks";
+import AddBookForm from "@/components/AddBookForm";
 
 export default async function UserProfilePage() {
   const { userId } = await auth();
@@ -33,6 +34,7 @@ export default async function UserProfilePage() {
       <h2>@{user.username}</h2>
       <p>{user.location}</p>
       <p>{user.bio}</p>
+      <AddBookForm userId={userId} />
 
       {/* render user's posts */}
       {/* To separate into tabs  */}
