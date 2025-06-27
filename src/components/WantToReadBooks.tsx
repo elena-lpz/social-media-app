@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { getBooksByStatus } from "@/lib/actions";
 import Image from "next/image";
+import { deleteBook } from "@/lib/actions";
 
 export default async function WantToReadBooks() {
   const { userId } = await auth();
@@ -29,6 +30,9 @@ export default async function WantToReadBooks() {
               <p>Rating:{book.rating}</p>
               <h3>{book.title}</h3>
               <p>by {book.author}</p>
+              <form action={deleteBook.bind(null, book.id, "/profile")}>
+                <button type="submit">Delete</button>
+              </form>
             </li>
           ))}
         </ul>

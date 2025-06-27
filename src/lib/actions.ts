@@ -37,7 +37,11 @@ export async function getBooksByStatus(userId: string, status: string) {
 }
 
 // add book action
-export async function addBook(userId: string, formData: FormData) {
+export async function addBook(
+  userId: string,
+  formData: FormData,
+  pathname: string
+) {
   const title = formData.get("title");
   const author = formData.get("author");
   const image = formData.get("image");
@@ -50,5 +54,18 @@ export async function addBook(userId: string, formData: FormData) {
     [title, author, image, status, rating, userId]
   );
   console.log("Book saved!");
-  //to revalidate? but what path....
+  //want the path to change depending on where the bookform is submitted
+  // function accepts a path
+  revalidatePath(pathname);
+}
+
+// Delete books
+// The books on the profile page are not a separate page but different components, so I'm not sure I can use what Manny showed us this week... I am using the same method to delete I used last week instead.
+
+// https://dev.to/bhanufyi/understanding-on-delete-cascade-and-on-update-cascade-in-sql-foreign-key-relationships-70o
+// https://www.reddit.com/r/nextjs/comments/1c0ybvj/server_actions_deleting_from_db_any_wizards_out/
+
+export async function deleteBook(bookId: number, pathname: string) {
+  await db.query(`DELETE FROM books WHERE id = $1`, [bookId]);
+  revalidatePath(pathname);
 }

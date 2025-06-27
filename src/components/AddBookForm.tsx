@@ -1,11 +1,15 @@
 "use client";
 import { useState } from "react";
 import { addBook } from "@/lib/actions";
+import { usePathname } from "next/navigation";
 
 export default function AddBookForm({ userId }: { userId: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleForm = () => setIsOpen(!isOpen);
+
+  //   https://nextjs.org/docs/app/api-reference/functions/use-pathname
+  const pathname = usePathname();
 
   return (
     <>
@@ -15,7 +19,7 @@ export default function AddBookForm({ userId }: { userId: string }) {
         <div>
           <form
             action={(formData) => {
-              addBook(userId, formData);
+              addBook(userId, formData, pathname);
               setIsOpen(false);
             }}
           >

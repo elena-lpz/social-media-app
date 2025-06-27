@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+button {
+  background-color: var(--color-neutral-500);
+  color: white;
+  border-radius: 20px;
+  padding: 12px;
+}
