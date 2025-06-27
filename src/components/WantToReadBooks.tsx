@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { getBooksByStatus } from "@/lib/actions";
 import Image from "next/image";
+import { deleteBook } from "@/lib/actions";
 
 export default async function WantToReadBooks() {
   const { userId } = await auth();
@@ -8,8 +9,9 @@ export default async function WantToReadBooks() {
   if (!userId) {
     return <p>Sign in to see your books.</p>;
   }
-
   const books = await getBooksByStatus(userId, "toread");
+
+  //cannot make my toaster work with delete being a server action... will look into it later
 
   return (
     <section>
@@ -29,6 +31,9 @@ export default async function WantToReadBooks() {
               <p>Rating:{book.rating}</p>
               <h3>{book.title}</h3>
               <p>by {book.author}</p>
+              <form action={deleteBook.bind(null, book.id, "/profile")}>
+                <button type="submit">Delete</button>
+              </form>
             </li>
           ))}
         </ul>

@@ -5,3 +5,11 @@ export type profileTypes = {
   location: string;
   avatar: string;
 };
+
+export type Book = {
+  id: number;
+  title: string;
+  author: string;
+  image: string;
+  rating: string;
+};
