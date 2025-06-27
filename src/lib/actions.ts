@@ -3,7 +3,7 @@
 import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 
-export async function CreateUserProfile({ id, formData }) {
+export async function CreateUserProfile(id: string, formData: FormData) {
   console.log("Saving user to the database...");
 
   const profileData = {

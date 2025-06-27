@@ -1,8 +1,13 @@
 "use client";
 import { CreateUserProfile } from "@/lib/actions";
 
-export default function ProfileForm({ userId }) {
+export default function ProfileForm({ userId }: { userId: string }) {
   const createProfileWithId = CreateUserProfile.bind(null, userId);
+
+  //got help from David here...
+
+  // https://stackoverflow.com/questions/70487236/redirect-to-another-page-based-on-form-input-in-next-js
+  // we want the user to be redirected after submitting the form....
 
   return (
     <form action={createProfileWithId}>

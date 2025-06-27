@@ -11,7 +11,7 @@ export default async function Header() {
   return (
     <>
       <header className="flex justify-between">
-        <h1 className="text-2xl">Lomogram</h1>
+        <h1 className="text-2xl">Booksy</h1>
         <nav className="flex gap-4 items-center">
           <SignedOut>
             <SignInButton />
