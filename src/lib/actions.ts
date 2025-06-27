@@ -3,6 +3,7 @@
 import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 
+//create profile
 export async function CreateUserProfile(id: string, formData: FormData) {
   console.log("Saving user to the database...");
 
@@ -24,4 +25,13 @@ export async function CreateUserProfile(id: string, formData: FormData) {
     ]
   );
   revalidatePath(`/`);
+}
+
+// sort books by status / pass id and the status
+export async function getBooksByStatus(userId: string, status: string) {
+  const booksQuery = await db.query(
+    `SELECT * FROM books WHERE user_id = $1 AND status = $2 ORDER BY created_at DESC`,
+    [userId, status]
+  );
+  return booksQuery.rows;
 }

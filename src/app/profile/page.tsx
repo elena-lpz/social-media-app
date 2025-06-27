@@ -5,6 +5,9 @@ import { db } from "@/utils/dbConnection";
 import { auth } from "@clerk/nextjs/server";
 import { SignIn } from "@clerk/nextjs";
 import Image from "next/image";
+import ReadingBooks from "@/components/ReadingBooks";
+import WantToReadBooks from "@/components/WantToReadBooks";
+import FinishedBooks from "@/components/FinishedBooks";
 
 export default async function UserProfilePage() {
   const { userId } = await auth();
@@ -32,6 +35,10 @@ export default async function UserProfilePage() {
       <p>{user.bio}</p>
 
       {/* render user's posts */}
+      {/* To separate into tabs  */}
+      <FinishedBooks />
+      <ReadingBooks />
+      <WantToReadBooks />
     </>
   );
 }
