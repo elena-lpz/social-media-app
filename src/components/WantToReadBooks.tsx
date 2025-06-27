@@ -9,8 +9,9 @@ export default async function WantToReadBooks() {
   if (!userId) {
     return <p>Sign in to see your books.</p>;
   }
-
   const books = await getBooksByStatus(userId, "toread");
+
+  //cannot make my toaster work with delete being a server action... will look into it later
 
   return (
     <section>
