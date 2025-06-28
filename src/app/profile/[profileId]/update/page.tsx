@@ -9,10 +9,14 @@ import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-//trying to fix vercel deployment error round 2
-type Params = { params: { profileId: string } };
+//trying to fix vercel deployment error round
+type PageParams = {
+  params: {
+    profileId: string;
+  };
+};
 
-export default async function UpdateProfilePage({ params }: Params) {
+export default async function UpdateProfilePage({ params }: PageParams) {
   const profileId = params.profileId;
 
   // select the current user profile
