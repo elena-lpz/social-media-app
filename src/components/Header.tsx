@@ -7,13 +7,15 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import Image from "next/image";
+import booksylogo from "@/../public/images/logo/booksylogo.png";
 
 export default async function Header() {
   const { userId } = await auth();
   return (
-    <header className="flex justify-between">
-      <h1 className="text-2xl">Booksy</h1>
-      <nav className="flex">
+    <header className="p-4 flex flex-col gap-4 md:flex-row justify-between">
+      <Image src={booksylogo} alt="Booksy logo" width={148} height={34}></Image>
+      <nav className="flex justify-between gap-4">
         <SignedOut>
           <SignInButton />
           <SignUpButton />
