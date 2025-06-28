@@ -13,3 +13,7 @@ export type Book = {
   image: string;
   rating: string;
 };
+
+export type ParamsProfileId = {
+  params: Promise<{ profileId: string }>;
+};
