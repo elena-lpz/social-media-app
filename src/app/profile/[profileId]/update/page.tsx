@@ -9,17 +9,11 @@ import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-//trying to fix vercel deployment error round 4
-// https://stackoverflow.com/questions/64722812/what-typescript-type-should-nextjs-app-tsx-component-and-pageprops-be
+import { ParamsProfileId } from "@/types/datatypes";
+//trying to fix vercel deployment error round 765785875 help
 
-interface PageProps {
-  params: {
-    profileId: string;
-  };
-}
-
-export default async function UpdateProfilePage({ params }: PageProps) {
-  const { profileId } = params;
+export default async function UpdateProfilePage({ params }: ParamsProfileId) {
+  const { profileId } = await params;
 
   // select the current user profile
   const result = await db.query(`SELECT * FROM user_profiles WHERE id = $1`, [
