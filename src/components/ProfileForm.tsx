@@ -39,7 +39,6 @@ export default function ProfileForm({ userId }: { userId: string }) {
           type="text"
           name="avatar"
           placeholder="Enter a valid URL for your avatar"
-          required
         />
       </fieldset>
       <button type="submit">Submit</button>

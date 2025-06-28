@@ -72,7 +72,23 @@ export async function deleteBook(bookId: number, pathname: string) {
 
 //get all books in db
 
+// export async function getAllBooks() {
+//   const result = await db.query(`SELECT * FROM books ORDER BY created_at DESC`);
+//   return result.rows;
+// }
+
+//changing this so I can get the user data too for the timeline
+//we want all rows from books and username and avatar from user_profiles with the same id
 export async function getAllBooks() {
-  const result = await db.query(`SELECT * FROM books ORDER BY created_at DESC`);
+  const result = await db.query(`
+    SELECT 
+      books.*, 
+      user_profiles.username, 
+      user_profiles.avatar
+    FROM books
+    JOIN user_profiles ON books.user_id = user_profiles.id
+    ORDER BY books.created_at DESC
+  `);
+
   return result.rows;
 }
