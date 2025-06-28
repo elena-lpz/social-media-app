@@ -31,43 +31,62 @@ export default async function UserProfilePage() {
 
   return (
     <>
-      <h1>Profile</h1>
-      <Link
-        href={`/profile/${user.id}/update`}
-        className="underline text-amber-500 "
-      >
-        Edit Profile
-      </Link>
-      <Image
-        src={user.avatar}
-        alt="Profile picture"
-        width={50}
-        height={50}
-        className="rounded-2xl"
-      />
-      <h2>@{user.username}</h2>
-      <p>{user.location}</p>
-      <p>{user.bio}</p>
-      <AddBookForm userId={userId} />
+      <section className="mx-5 md:mx-6 lg:mx-16 text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4 ">
+          <h1 className="text-4xl md:text-6xl font-bold text-green-accent ">
+            Your <span className="text-purple-accent">profile</span>
+          </h1>
+          <AddBookForm userId={userId} />
+        </div>
 
-      <div className="flex w-full max-w-sm flex-col gap-6">
-        <Tabs defaultValue="finished" className="w-[400px]">
-          <TabsList>
-            <TabsTrigger value="finished">Finished</TabsTrigger>
-            <TabsTrigger value="reading">Reading</TabsTrigger>
-            <TabsTrigger value="toread">Want to read</TabsTrigger>
-          </TabsList>
-          <TabsContent value="finished">
-            <FinishedBooks />
-          </TabsContent>
-          <TabsContent value="reading">
-            <ReadingBooks />
-          </TabsContent>
-          <TabsContent value="toread">
-            <WantToReadBooks />
-          </TabsContent>
-        </Tabs>
-      </div>
+        <div className="flex gap-4 justify-between  bg-card-bg rounded-2xl p-8  ">
+          <div className="flex gap-8 items-center">
+            <Image
+              src={user.avatar}
+              alt="Profile picture"
+              width={150}
+              height={150}
+              className="rounded-full border-6 border-white"
+            />
+            <div className="flex flex-col gap-4">
+              <h2 className="text-xl text-purple-accent font-semibold">
+                <span className="text-white">@ </span>
+                {user.username}
+              </h2>
+              <p className="text-lg font-medium flex gap-3 items-center">
+                {user.location}
+              </p>
+              <p>{user.bio}</p>
+            </div>
+          </div>
+
+          <Link
+            href={`/profile/${user.id}/update`}
+            className="md:h-fit justify-between md:text-lg bg-green-accent rounded-4xl text-background flex items-center gap-3 font-semibold px-5  py-2 hover:bg-neutral-700 hover:text-white"
+          >
+            Edit Profile
+          </Link>
+        </div>
+
+        <div className="flex flex-col gap-6 mt-6">
+          <Tabs defaultValue="finished">
+            <TabsList>
+              <TabsTrigger value="finished">FINISHED</TabsTrigger>
+              <TabsTrigger value="reading">READING</TabsTrigger>
+              <TabsTrigger value="wanttoread">WANT TO READ</TabsTrigger>
+            </TabsList>
+            <TabsContent value="finished">
+              <FinishedBooks />
+            </TabsContent>
+            <TabsContent value="reading">
+              <ReadingBooks />
+            </TabsContent>
+            <TabsContent value="wanttoread">
+              <WantToReadBooks />
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
     </>
   );
 }

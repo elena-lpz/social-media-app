@@ -13,7 +13,12 @@ export default function AddBookForm({ userId }: { userId: string }) {
 
   return (
     <>
-      <button onClick={toggleForm}>Add Book</button>
+      <button
+        onClick={toggleForm}
+        className="md:w-fit justify-between md:text-lg bg-white rounded-4xl text-background flex items-center gap-3 font-semibold px-5 py-2 hover:bg-neutral-700 hover:text-white"
+      >
+        Add Book
+      </button>
 
       {isOpen && (
         <div>

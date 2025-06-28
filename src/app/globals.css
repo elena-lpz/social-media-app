@@ -21,7 +21,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-button {
+/* button {
   border-radius: 4rem;
   background: var(--theme-white);
   color: var(--background);
@@ -29,7 +29,7 @@ button {
   padding: 0.5rem 2rem;
   width: fit-content;
   height: fit-content;
-}
+} */
 
 h1 {
   font-family: var(--font-playfair);
