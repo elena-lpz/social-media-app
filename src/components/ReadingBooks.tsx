@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { getBooksByStatus } from "@/lib/actions";
 import Image from "next/image";
+import { deleteBook } from "@/lib/actions";
 
 export default async function ReadingBooks() {
   const { userId } = await auth();
@@ -17,9 +18,9 @@ export default async function ReadingBooks() {
       {books.length === 0 ? (
         <p>You have no books in this category.</p>
       ) : (
-        <ul>
+        <div>
           {books.map((book) => (
-            <li key={book.id}>
+            <div key={book.id}>
               <Image
                 src={book.image}
                 alt={book.title}
@@ -29,9 +30,13 @@ export default async function ReadingBooks() {
               <p>Rating:{book.rating}</p>
               <h3>{book.title}</h3>
               <p>by {book.author}</p>
-            </li>
+
+              <form action={deleteBook.bind(null, book.id, "/profile")}>
+                <button type="submit">Delete</button>
+              </form>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </section>
   );
