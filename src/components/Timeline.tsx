@@ -2,6 +2,7 @@ import Image from "next/image";
 import AddBookForm from "@/components/AddBookForm";
 import { getAllBooks } from "@/lib/actions";
 import { StarIcon } from "lucide-react";
+import ad from "@/../public/images/other/ad.svg";
 
 export default async function Timeline({ userId }: { userId: string }) {
   const books = await getAllBooks();
@@ -14,8 +15,8 @@ export default async function Timeline({ userId }: { userId: string }) {
         </h1>
         <AddBookForm userId={userId} />
       </div>
-      <section>
-        <div>
+      <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full mb-4">
+        <div className="w-full">
           <h4 className="text-lg pb-4 mt-6">UPDATES</h4>
           {books.length === 0 ? (
             <p>No books have been added yet.</p>
@@ -105,7 +106,18 @@ export default async function Timeline({ userId }: { userId: string }) {
             </div>
           )}
         </div>
-      </section>
+
+        <div>
+          <h4 className="text-lg pb-4 mt-6 ">NEWS</h4>
+          <Image
+            src={ad}
+            alt="advert that reads have you set up your reading chanllenge yet?"
+            height={382}
+            width={271}
+          />
+        </div>
+      </div>
+
       {/* <ReadingBooks />
       <WantToReadBooks /> */}
     </section>
