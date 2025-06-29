@@ -13,8 +13,8 @@ export default function LoggedInNav() {
           href={"/"}
           className={`${
             currentRoute === "/"
-              ? "text-green-accent text-lg font-medium"
-              : "text-white text-lg font-medium"
+              ? "text-green-accent text-lg font-medium "
+              : "text-white text-lg font-medium hover:underline"
           }`}
         >
           Timeline
@@ -24,7 +24,7 @@ export default function LoggedInNav() {
           className={`${
             currentRoute === "/profile"
               ? "text-green-accent text-lg font-medium"
-              : "text-white text-lg font-medium"
+              : "text-white text-lg font-medium hover:underline"
           }`}
         >
           My profile
