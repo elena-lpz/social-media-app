@@ -11,9 +11,9 @@ export const metadata = {
   description: "Read it. Log it. Love it.",
   type: "website",
   url: "https://getbooksy.vercel.app/",
-  // icons: {
-  //   icon: "/logos/favicon.png",
-  // },
+  icons: {
+    icon: "./images/logo/favicon.png",
+  },
 };
 
 const playfair = Playfair_Display({
