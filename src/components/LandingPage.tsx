@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function LandingPage() {
   return (
     <section className="mx-5 md:mx-6 lg:mx-16 text-left">
-      <div className="flex flex-col-reverse lg:flex-row justify-center items-center h-[auto] mt-4 md:h-[80dvh] gap-8 lg:gap-40">
+      <div className="flex flex-col lg:flex-row justify-center items-center h-[auto] mt-4 md:h-[80dvh] gap-8 lg:gap-40">
         <div>
           <div className="w-[90dvw] lg:w-[auto] flex flex-col gap-8 mb-4">
             <h2>WELCOME TO BOOKSY</h2>
@@ -33,9 +33,9 @@ export default function LandingPage() {
           </div>
         </div>
         <div>
-          <div className="rounded-4xl p-6 flex gap-2 flex-col items-start justify-end bg-purple-accent w-[93dvw] lg:w-[auto] lg:h-[50dvh]">
+          <div className="rounded-4xl p-6 flex gap-2 flex-col items-start justify-end bg-purple-accent w-[93dvw] lg:w-[auto] h-[20dvh] lg:h-[40dvh]">
             <p className="text-sm md:text-lg font-medium">Join more than</p>
-            <h3 className="text-xl md:text-3xl font-semibold text-neutral-950 md:max-w-[20dvw]">
+            <h3 className="text-xl lg:text-3xl font-semibold text-neutral-950 md:max-w-[20dvw]">
               20,000 users worldwide
             </h3>
           </div>
@@ -44,7 +44,7 @@ export default function LandingPage() {
             src={homepageimg}
             alt="Woman reading outside"
             height={400}
-            className="hidden lg:block relative mt-[-6rem] lg:right-[-17rem] lg:mt-[-30rem] w-full max-w-[10dvw] z-0 "
+            className="hidden lg:block relative mt-[-6rem] lg:right-[-15rem] lg:mt-[-30rem] w-full max-w-[10dvw] z-0 "
           />
         </div>
       </div>
