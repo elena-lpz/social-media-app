@@ -65,7 +65,7 @@ export default function AddBookForm({ userId }: { userId: string }) {
             Book cover{" "}
             <span className="text-neutral-400 text-sm">
               (please only use dropbox links starting with:
-              dl.dropboxusercontent.com)
+              dl.dropboxusercontent.com. Link in README)
             </span>
           </label>
 

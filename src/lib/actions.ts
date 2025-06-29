@@ -2,6 +2,7 @@
 
 import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 //create profile
 export async function CreateUserProfile(id: string, formData: FormData) {
@@ -25,6 +26,7 @@ export async function CreateUserProfile(id: string, formData: FormData) {
     ]
   );
   revalidatePath(`/`);
+  redirect("/profile");
 }
 
 // sort books by status / pass id and the status

@@ -70,46 +70,51 @@ export default async function UpdateProfilePage({ params }: ParamsProfileId) {
         action={handleUpdate}
         className="flex flex-col gap-3 w-[90dvw] lg:w-[30dvw]"
       >
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            required
-            defaultValue={user.username}
-            className="bg-white text-black border rounded p-2 w-full"
-          />
+        <label htmlFor="username" className="font-medium">
+          Username:{" "}
         </label>
-        <label>
-          Bio:
-          <textarea
-            name="bio"
-            rows={3}
-            required
-            defaultValue={user.bio}
-            className="bg-white text-black border rounded p-2 w-full"
-          />
+        <input
+          type="text"
+          name="username"
+          required
+          defaultValue={user.username}
+          className="bg-white text-black border rounded p-2 w-full"
+        />
+        <label htmlFor="bio" className="font-medium">
+          Bio:{" "}
         </label>
-        <label>
-          Avatar URL:
-          <input
-            type="text"
-            name="avatar"
-            required
-            defaultValue={user.avatar}
-            className="bg-white text-black border rounded p-2 w-full"
-          />
+        <textarea
+          name="bio"
+          rows={3}
+          required
+          defaultValue={user.bio}
+          className="bg-white text-black border rounded p-2 w-full"
+        />
+        <label htmlFor="avatar" className="font-medium">
+          Avatar URL{" "}
+          <span className="text-neutral-400 text-sm">
+            (please only use dropbox links starting with:
+            dl.dropboxusercontent.com. Link in README)
+          </span>
         </label>
-        <label>
+        <input
+          type="text"
+          name="avatar"
+          required
+          defaultValue={user.avatar}
+          className="bg-white text-black border rounded p-2 w-full"
+        />
+        <label htmlFor="location" className="font-medium">
           Location:
-          <input
-            type="text"
-            name="location"
-            required
-            defaultValue={user.location}
-            className="bg-white text-black border rounded p-2 w-full"
-          />
         </label>
+
+        <input
+          type="text"
+          name="location"
+          required
+          defaultValue={user.location}
+          className="bg-white text-black border rounded p-2 w-full"
+        />
         <button
           type="submit"
           className=" justify-center md:text-lg bg-green-accent rounded-4xl text-background flex items-center gap-3 font-semibold px-5 py-2 hover:bg-neutral-700 hover:text-white mt-4"
