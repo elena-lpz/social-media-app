@@ -14,7 +14,7 @@ import Link from "next/link";
 export default async function Header() {
   const { userId } = await auth();
   return (
-    <header className="mx-5 md:mx-16 my-2 md:my-8 flex flex-col gap-4 md:flex-row justify-between">
+    <header className="mx-5 md:mx-16 my-2 md:my-8 flex  gap-4  justify-between">
       <Link href={`/`}>
         <Image src={logo} alt="Booksy logo" width={42} height={42}></Image>
       </Link>

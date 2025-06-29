@@ -1,16 +1,14 @@
 import Image from "next/image";
 import AddBookForm from "@/components/AddBookForm";
 import { getAllBooks } from "@/lib/actions";
-// import ReadingBooks from "./ReadingBooks";
-// import WantToReadBooks from "./WantToReadBooks";
 import { StarIcon } from "lucide-react";
 
 export default async function Timeline({ userId }: { userId: string }) {
   const books = await getAllBooks();
 
   return (
-    <section className="mx-5 md:mx-6 lg:mx-16 text-left">
-      <div className="flex flex-col md:flex-row justify-between items-center">
+    <section className="mx-5  md:mx-16 text-left mt-4">
+      <div className="flex justify-between items-center gap-3">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 text-green-accent ">
           Your Book <span className="text-purple-accent">Timeline</span>
         </h1>
@@ -70,15 +68,15 @@ export default async function Timeline({ userId }: { userId: string }) {
                         </div>
                       </div>
 
-                      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                      <div className="flex flex-col items-center md:flex-row gap-4 md:items-start">
                         <Image
                           src={book.image}
                           alt={book.title}
                           width={165}
                           height={250}
                         />
-                        <div className="sm:ps-4 pt-2 sm:pt-0">
-                          <h2 className="text-xl md:text-2xl font-semibold pb-1">
+                        <div className="sm:ps-4 text-center md:text-left pt-2 sm:pt-0">
+                          <h2 className="text-xl md:text-2xl  font-semibold pb-1">
                             {book.title}
                           </h2>
                           <p className="text-white pb-3 text-sm md:text-base">

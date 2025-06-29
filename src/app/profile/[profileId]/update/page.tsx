@@ -12,6 +12,8 @@ import Link from "next/link";
 import { ParamsProfileId } from "@/types/datatypes";
 //trying to fix vercel deployment error round 765785875 help
 
+import { MoveLeftIcon } from "lucide-react";
+
 export default async function UpdateProfilePage({ params }: ParamsProfileId) {
   const { profileId } = await params;
 
@@ -52,10 +54,22 @@ export default async function UpdateProfilePage({ params }: ParamsProfileId) {
   }
   //default value = prefilled inputs
   return (
-    <section>
-      <h1 className="text-xl font-semibold mb-4">Update Your Profile</h1>
-      <Link href="/profile">Go back to profile</Link>
-      <form action={handleUpdate} className="flex flex-col gap-3 max-w-md">
+    <section className="flex flex-col items-center justify-center">
+      <Link
+        className="flex  gap-3 hover:underline items-center self-start mx-4 md:mx-16 text-green-accent font-semibold text-lg md:text-xl"
+        href="/profile"
+      >
+        <MoveLeftIcon /> Go back to profile
+      </Link>
+
+      <h1 className="text-3xl text-center md:text-6xl font-bold md:mb-4 text-green-accent lg:max-w-[40dvw] py-6 md:py-8">
+        Update Your <span className="text-purple-accent">Profile</span>
+      </h1>
+
+      <form
+        action={handleUpdate}
+        className="flex flex-col gap-3 w-[90dvw] lg:w-[30dvw]"
+      >
         <label>
           Username:
           <input
@@ -96,7 +110,10 @@ export default async function UpdateProfilePage({ params }: ParamsProfileId) {
             className="bg-white text-black border rounded p-2 w-full"
           />
         </label>
-        <button type="submit" className="p-2 bg-neutral-400 rounded mt-2">
+        <button
+          type="submit"
+          className=" justify-center md:text-lg bg-green-accent rounded-4xl text-background flex items-center gap-3 font-semibold px-5 py-2 hover:bg-neutral-700 hover:text-white mt-4"
+        >
           Save Changes
         </button>
       </form>
