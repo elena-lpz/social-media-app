@@ -10,7 +10,7 @@ export const metadata = {
   title: "Booksy",
   description: "Read it. Log it. Love it.",
   type: "website",
-  // url: "https://booksy.vercel.app/",
+  url: "https://getbooksy.vercel.app/",
   // icons: {
   //   icon: "/logos/favicon.png",
   // },
