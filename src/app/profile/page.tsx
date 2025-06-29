@@ -71,10 +71,16 @@ export default async function UserProfilePage() {
 
         <div className="flex flex-col gap-6 mt-6">
           <Tabs defaultValue="finished">
-            <TabsList>
-              <TabsTrigger value="finished">FINISHED</TabsTrigger>
-              <TabsTrigger value="reading">READING</TabsTrigger>
-              <TabsTrigger value="wanttoread">WANT TO READ</TabsTrigger>
+            <TabsList className="TabsList" aria-label="Manage your account">
+              <TabsTrigger className="TabsTrigger" value="finished">
+                FINISHED
+              </TabsTrigger>
+              <TabsTrigger className="TabsTrigger" value="reading">
+                READING
+              </TabsTrigger>
+              <TabsTrigger className="TabsTrigger" value="wanttoread">
+                WANT TO READ
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="finished">
               <FinishedBooks />
