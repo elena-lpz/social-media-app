@@ -92,3 +92,16 @@ export async function getAllBooks() {
 
   return result.rows;
 }
+
+//update status query
+
+export async function updateBookStatus(bookId: number, newStatus: string) {
+  await db.query(
+    `
+    UPDATE books
+    SET status = $1
+    WHERE id = $2
+  `,
+    [newStatus, bookId]
+  );
+}

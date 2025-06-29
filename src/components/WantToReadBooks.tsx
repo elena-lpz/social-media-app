@@ -3,6 +3,7 @@ import { getBooksByStatus } from "@/lib/actions";
 import Image from "next/image";
 import { deleteBook } from "@/lib/actions";
 import { StarIcon } from "lucide-react";
+import { UpdateBookStatusForm } from "./UpdateBookStatusForm";
 
 export default async function WantToReadBooks() {
   const { userId } = await auth();
@@ -55,6 +56,10 @@ export default async function WantToReadBooks() {
                 </div>
                 <div className="flex justify-end items-start  gap-6 text-sm md:text-lg font-light">
                   <form action={deleteBook.bind(null, book.id, "/profile")}>
+                    <UpdateBookStatusForm
+                      bookId={book.id}
+                      currentStatus={book.status}
+                    />
                     <button
                       type="submit"
                       className="md:w-fit justify-between md:text-lg bg-white rounded-4xl text-background flex items-center gap-3 font-semibold px-5 py-2 hover:bg-neutral-700 hover:text-white"
