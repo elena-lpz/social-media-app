@@ -32,6 +32,8 @@ I had a lot of ideas for this app, but as always, time is limited and there’s 
 
 Overall, I’m happy with what I managed to build, and maybe in the future, I can add everything I originally envisioned.
 
+Edit: Editing to include more stuff I did not have time to complete... I would have liked to add a button to view book info, I also wanted to include a summary row in my table but ideally, I would have liked to use an API to get this data from, so the user would only need to search for a book and the data pulled from the API would fill out the rest, the only thing the user would need to do is change the status, add a review and rating. 
+
 # Challenges
 
 TypeScript. TypeScript. TypeScript. I struggled a lot with the errors, but I got through it in the end. I also ran into some deployment issues that felt impossible to fix at the time, but again, here we are.
